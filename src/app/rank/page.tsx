@@ -108,7 +108,7 @@ export default function RankPage() {
               </div>
 
               <div className="text-right">
-                <div className="font-semibold text-green-400 text-sm">{rank.trading_pnl.toFixed(2)} SOL</div>
+                <div className="font-semibold text-green-400 text-sm">{rank.trading_pnl ? rank.trading_pnl.toFixed(2) : 0} SOL</div>
               </div>
             </div>
           ))}
@@ -137,7 +137,7 @@ export default function RankPage() {
               </div>
 
               <div className="text-right">
-                <div className="font-semibold text-red-400 text-sm">{rank.trading_pnl.toFixed(2)} SOL</div>
+                <div className="font-semibold text-red-400 text-sm">{rank.trading_pnl ? rank.trading_pnl.toFixed(2) : 0} SOL</div>
               </div>
             </div>
           ))}
@@ -166,7 +166,7 @@ export default function RankPage() {
               </div>
 
               <div className="text-right">
-                <div className="font-semibold text-purple-400 text-sm">{rank.trading_volume.toFixed(2)} SOL</div>
+                <div className="font-semibold text-purple-400 text-sm">{rank.trading_volume ? rank.trading_volume.toFixed(2) : 0} SOL</div>
               </div>
             </div>
           ))}

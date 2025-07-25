@@ -3,6 +3,6 @@ export interface Rank {
     firstName: string;
     username: string;
     photoUrl: string;
-    trading_volume: number;
-    trading_pnl: number;
+    trading_volume?: number;
+    trading_pnl?: number;
 }

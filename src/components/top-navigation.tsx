@@ -7,6 +7,7 @@ import { User, LogOut, Wallet, TrendingUp, Home, Star, Trophy, LogIn } from "luc
 import { usePrivy, useSolanaWallets } from "@privy-io/react-auth"
 import { toast } from "sonner"
 import { userTelegramLogin } from "@/lib/user"
+import Image from "next/image"
 
 const menuItems = [
   { icon: Home, label: "Home", href: "/" },
@@ -36,10 +37,8 @@ export function TopNavigation() {
       <div className="flex h-14 items-center justify-between px-4">
         <div className="flex items-center space-x-2">
           <div className="flex items-center space-x-2">
-            <div className="h-7 w-7 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">M</span>
-            </div>
-            <span className="font-bold text-lg">MemeCoin</span>
+            <Image src="/logo.png" alt="MemeCoin" width={40} height={40} />
+            {/* <span className="font-bold text-lg">Mbonk Space</span> */}
           </div>
         </div>
 
