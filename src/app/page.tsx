@@ -54,7 +54,7 @@ export default function Home() {
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <Image src={projectToken.logoURI} alt={projectToken.name} width={48} height={48} className="rounded-full" />
+              <Image src={projectToken.logoURI || '/logo.png'} alt={projectToken.name} width={48} height={48} className="rounded-full" />
               <div>
                 <h1 className="text-xl font-bold text-white">{projectToken.symbol}</h1>
                 <p className="text-sm text-gray-400">{projectToken.name}</p>
@@ -88,7 +88,7 @@ export default function Home() {
 
           {/* Description */}
           <p className="text-sm text-gray-300 mb-6 leading-relaxed">
-            {projectToken.extensions.description}
+            {projectToken.extensions?.description || 'No description available'}
           </p>
 
           {/* Action Button */}
@@ -142,7 +142,7 @@ export default function Home() {
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <div className="text-xl">
-                    <Image src={token.logoURI} alt={token.name} width={32} height={32} className="rounded-full" />
+                    <Image src={token.logoURI || '/logo.png'} alt={token.name} width={32} height={32} className="rounded-full" />
                   </div>
                   <div>
                     <div className="font-medium text-white text-sm">{token.symbol}</div>
