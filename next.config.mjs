@@ -13,6 +13,39 @@ const nextConfig = {
       },
     ],
   },
+  headers: async () => {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:",
+              "script-src * 'unsafe-inline' 'unsafe-eval' wss://public-api.birdeye.so/socket ws://public-api.birdeye.so/socket",
+              "connect-src * 'unsafe-inline'",
+              "img-src * data: blob: 'unsafe-inline'",
+              "style-src * 'unsafe-inline'",
+              "frame-ancestors *",
+              "frame-src 'self' https://auth.privy.io https://oauth.telegram.org"
+            ].join('; ')
+          },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*'
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET,OPTIONS,PATCH,DELETE,POST,PUT'
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: '*'
+          }
+        ]
+      }
+    ];
+  }
 };
 
 export default nextConfig;
