@@ -22,7 +22,7 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:",
-              "script-src * 'unsafe-inline' 'unsafe-eval' wss://public-api.birdeye.so/socket ws://public-api.birdeye.so/socket",
+              "script-src * 'unsafe-inline' 'unsafe-eval' wss://public-api.birdeye.so/socket/solana ws://public-api.birdeye.so/socket/solana",
               "connect-src * 'unsafe-inline'",
               "img-src * data: blob: 'unsafe-inline'",
               "style-src * 'unsafe-inline'",
