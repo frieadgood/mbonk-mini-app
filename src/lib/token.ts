@@ -127,30 +127,31 @@ export const getTokenTop10Holders = async (tokenAddress: string, mintInfo: unkno
         return [];
     });
 
-    const poolsInfo = await axios({
-        method: 'get',
-        url: 'https://defi.shyft.to/v0/pools/get_by_token',
-        headers: {
-            'x-api-key': SHYFT_API_KEY,
-            'Content-Type': 'application/json'
-        },
-        params: {
-            page: 1,
-            limit: 50,
-            token: mint.toBase58()
-        }
-    }).then((res) => {
-        return res.data.result.dexes;
-    }).catch((err) => {
-        console.log(err);
-        return {}
-    });
+    // const poolsInfo = await axios({
+    //     method: 'get',
+    //     url: 'https://defi.shyft.to/v0/pools/get_by_token',
+    //     headers: {
+    //         'x-api-key': SHYFT_API_KEY,
+    //         'Content-Type': 'application/json'
+    //     },
+    //     params: {
+    //         page: 1,
+    //         limit: 50,
+    //         token: mint.toBase58()
+    //     }
+    // }).then((res) => {
+    //     return res.data.result.dexes;
+    // }).catch((err) => {
+    //     console.log(err);
+    //     return {}
+    // });
 
-    const poolsBaseVault = Object.values(poolsInfo)
-        .flatMap((pool: unknown) => (pool as { pools: unknown[] }).pools)
-        .flatMap((pool: unknown) => [(pool as { baseVault: string }).baseVault, (pool as { quoteVault: string }).quoteVault]);
+    // const poolsBaseVault = Object.values(poolsInfo)
+    //     .flatMap((pool: unknown) => (pool as { pools: unknown[] }).pools)
+    //     .flatMap((pool: unknown) => [(pool as { baseVault: string }).baseVault, (pool as { quoteVault: string }).quoteVault]);
 
-    const top10Accounts = accounts.filter((account: unknown) => !poolsBaseVault.includes((account as { token_account: string }).token_account)).slice(0, 10);
+    // const top10Accounts = accounts.filter((account: unknown) => !poolsBaseVault.includes((account as { token_account: string }).token_account)).slice(0, 10);
+    const top10Accounts = accounts.slice(0, 10);
     const totalSupply = Number((mintInfo as { supply: string }).supply);
     const top10Supply = top10Accounts.reduce((acc: number, account: unknown) => acc + Number((account as { amount: string }).amount), 0);
     const top10Percentage = (top10Supply / totalSupply) * 100;

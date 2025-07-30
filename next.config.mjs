@@ -27,7 +27,7 @@ const nextConfig = {
               "img-src * data: blob: 'unsafe-inline'",
               "style-src * 'unsafe-inline'",
               "frame-ancestors *",
-              "frame-src 'self' https://auth.privy.io https://oauth.telegram.org"
+              "frame-src 'self' https://auth.privy.io https://oauth.telegram.org blob:"
             ].join('; ')
           },
           {
